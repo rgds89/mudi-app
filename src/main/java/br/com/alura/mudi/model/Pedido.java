@@ -1,4 +1,4 @@
-package br.com.alura.mudi.models;
+package br.com.alura.mudi.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,4 +23,7 @@ public class Pedido implements Serializable {
     private String urlProduct;
     private String urlImg;
     private String description;
+
+    @Enumerated(EnumType.STRING)
+    private StatusPedido status;
 }
