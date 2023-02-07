@@ -1,7 +1,7 @@
 package br.com.alura.mudi.controllers;
 
 import br.com.alura.mudi.dto.ResquisicaoNovoPedido;
-import br.com.alura.mudi.models.Pedido;
+import br.com.alura.mudi.model.Pedido;
 import br.com.alura.mudi.repositories.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +31,7 @@ public class PedidoController {
         } else {
             Pedido pedido = resquisicaoNovoPedido.toPedido();
             pedidoRepository.save(pedido);
-            return "home";
+            return "redirect:/home";
         }
     }
 }

@@ -1,6 +1,7 @@
 package br.com.alura.mudi.dto;
 
-import br.com.alura.mudi.models.Pedido;
+import br.com.alura.mudi.model.Pedido;
+import br.com.alura.mudi.model.StatusPedido;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -21,6 +22,7 @@ public class ResquisicaoNovoPedido {
         pedido.setDescription(this.descriptionProduct);
         pedido.setUrlProduct(this.urlProduct);
         pedido.setUrlImg(this.urlImgProduct);
+        pedido.setStatus(StatusPedido.AGUARDANDO);
         return pedido;
     }
 }
