@@ -16,4 +16,6 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
     @Query("SELECT p FROM Pedido p JOIN p.usuario u WHERE u.username = :usuario")
     List<Pedido> findByUser(@Param("usuario") String usuario);
+
+    List<Pedido> findByStatusOrderByDeliveryDateDesc(StatusPedido entregue);
 }
