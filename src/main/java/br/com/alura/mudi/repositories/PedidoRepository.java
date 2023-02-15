@@ -20,5 +20,6 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
     List<Pedido> findByUser(@Param("usuario") String usuario);
 
     @Cacheable("pedido")
-    List<Pedido> findByStatusOrderByDeliveryDateDesc(StatusPedido entregue, Pageable page);
+    List<Pedido> findByStatusOrderByIdDesc(StatusPedido status, Pageable page);
+
 }
