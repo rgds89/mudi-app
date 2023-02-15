@@ -23,7 +23,7 @@ public class HomeController {
     @GetMapping
     public String home(Model model, Principal principal){
         PageRequest pageRequest = PageRequest.of(0,10);
-        List<Pedido> pedidos = pedidoRepository.findByStatusOrderByDeliveryDateDesc(StatusPedido.ENTREGUE, pageRequest);
+        List<Pedido> pedidos = pedidoRepository.findByStatusOrderByIdDesc(StatusPedido.ENTREGUE, pageRequest);
         model.addAttribute("pedidos", pedidos);
         return "home";
     }
