@@ -26,4 +26,7 @@ public class Pedido implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private StatusPedido status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Usuario usuario;
 }
