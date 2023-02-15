@@ -4,6 +4,7 @@ import br.com.alura.mudi.model.Pedido;
 import br.com.alura.mudi.model.StatusPedido;
 import br.com.alura.mudi.repositories.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,8 @@ public class HomeController {
 
     @GetMapping
     public String home(Model model, Principal principal){
-        List<Pedido> pedidos = pedidoRepository.findByStatusOrderByDeliveryDateDesc(StatusPedido.ENTREGUE);
+        PageRequest pageRequest = PageRequest.of(0,10);
+        List<Pedido> pedidos = pedidoRepository.findByStatusOrderByDeliveryDateDesc(StatusPedido.ENTREGUE, pageRequest);
         model.addAttribute("pedidos", pedidos);
         return "home";
     }
